@@ -1,18 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router';
 import CssBaseline from '@mui/material/CssBaseline';
-import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Container from '@mui/material/Container';
 import Paper from '@mui/material/Paper';
-
 import Button from '@mui/material/Button';
-import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
-
 import MenuItem from '@mui/material/MenuItem';
-
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {
   jobTypes,
@@ -69,8 +64,6 @@ export default function createApplication(props) {
   });
 
   const handleFormStateChange = (e) => {
-    console.log('target', e.target);
-    console.log(formState[e.target.id]);
     const newState = { ...formState, [e.target.name]: e.target.value };
     setFormState(newState);
   };
@@ -87,7 +80,6 @@ export default function createApplication(props) {
     })
       .then((data) => data.json())
       .then((res) => {
-        console.log('success!');
         navigate('/dashboard');
       });
   }
